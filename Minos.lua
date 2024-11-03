@@ -1,12 +1,19 @@
+local Executor = identifyexecutor()
+
+if Executor == "Xeno" then
+    print("Xeno")
+end
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+ game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Success!",["Text"] = "You have Gained access to Surreal's unreleased Gui's..",["Duration"] = 20,["Button1"] = "Fuck off."})  
 
 local Window = Rayfield:CreateWindow({
    Name = "The Strongest Battleground Moveset Hub",
    LoadingTitle = "Moveset Hub",
-   LoadingSubtitle = "Loading...",
+   LoadingSubtitle = "Made by Surreal",
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
+      FolderName = "Surreals Shit", -- Create a custom folder for your hub/game
       FileName = "TSBSHIT"
    },
    Discord = {
@@ -14,15 +21,15 @@ local Window = Rayfield:CreateWindow({
       Invite = "fqaB7Z524s", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "Untitled",
+      Title = "Key System (Sorry)",
       Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      Note = "If you don't know the key you're not supposed to have this",
+      FileName = "Keyforhub", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"Gojo"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 Rayfield:Notify({
@@ -48,7 +55,16 @@ Rayfield:Notify({
 },
 })
 
-
+local Tab = Window:CreateTab("Main", 17755101181) -- Title, Image
+local Section = Tab:CreateSection("Notices")
+local Label = Tab:CreateLabel("This is a heavily WIP Script Updates will come.")
+local Label = Tab:CreateLabel("For more information on updates within the script join the discord.")
+local Paragraph = Tab:CreateParagraph({Title = "If you've been permitted to see this consider yourself lucky", Content = "This script is extremely private currently but will be opened up later on down the line."})
+local Button = Tab:CreateButton({
+   Name = "Copy Discord Invite",
+   Callback = function()
+setclipboard("fqaB7Z524s")   end,
+})
 local Tab = Window:CreateTab("Garou", 15124465439) -- Title, Image
 local Section = Tab:CreateSection("Garou Movesets")
 local Button = Tab:CreateButton({
@@ -62,7 +78,7 @@ local Section = Tab:CreateSection("Saitama Movesets")
 local Button = Tab:CreateButton({
    Name = "Saitama To Mahito",
    Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Kenjihin69/Kenjihin69/refs/heads/main/Mahitotsbupdate'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidExploit/Gui/refs/heads/main/Gui"))() 
    end,
 })
 local Button = Tab:CreateButton({
@@ -154,10 +170,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidExploit/Gui/refs/
 local Tab = Window:CreateTab("KJ", 15114667107) -- Title, Image
 local Section = Tab:CreateSection("KJ Movesets")
 local Button = Tab:CreateButton({
-   Name = "Saitama To Mahito",
+   Name = "Fake KJ Hub",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidExploit/Gui/refs/heads/main/Gui"))() 
-   end,
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Tariviste/Scripts/main/The%20Strongest%20Battlegrounds'))() 
+ setclipboard("Tariviste_CPQy722EK85mruf")
+ end,
 })
 local Tab = Window:CreateTab("Misc", 15114667107) -- Title, Image
 local Section = Tab:CreateSection("Misc Shit")
@@ -168,6 +185,82 @@ getgenv().ToggleKeybind = Enum.KeyCode.RightControl
 getgenv().FreeEmotesTab = false
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ATrainz/main/main/Phantasm-Loader.lua"))()   end,
 })
+local Button = Tab:CreateButton({
+   Name = "Tam Hub",
+   Callback = function()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/tamarixr/tamhub/main/bettertamhub.lua")()
+end,
+})
+local Players = game:GetService("Players")
+local playerNames = {"None"} 
+local selectedPlayer = nil
+local teleporting = false
+local teleportConnection = nil
+local Dropdown = Tab:CreateDropdown({
+   Name = "Teleport To Players",
+   Options = playerNames,
+   CurrentOption = "Select Plr",
+   MultipleOptions = false,
+   Flag = "dropdownarea",
+   Callback = function(Option)
+      if Option == "None" then
+         teleporting = false
+         selectedPlayer = nil
+         if teleportConnection then
+            teleportConnection:Disconnect()
+            teleportConnection = nil
+         end
+      else
+         -- Start teleporting to selected player
+         selectedPlayer = Players:FindFirstChild(Option)
+         if selectedPlayer then
+            teleporting = true
+
+            if teleportConnection then
+               teleportConnection:Disconnect()
+            end
+
+            teleportConnection = game:GetService("RunService").RenderStepped:Connect(function()
+               if teleporting and selectedPlayer and selectedPlayer.Character and selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                  local targetPosition = selectedPlayer.Character.HumanoidRootPart.Position
+                  local localPlayer = Players.LocalPlayer
+                  if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                     -- Set local player's position to target's position
+                     localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+                  else
+                     print("Local player's HumanoidRootPart not found")
+                  end
+               else
+                  print("Target player's HumanoidRootPart not found or teleporting disabled")
+               end
+            end)
+         else
+            print("Selected player not found")
+         end
+      end
+   end,
+})
+
+local function refreshPlayerDropdown()
+   playerNames = {"None"} 
+
+   -- Collect current player names
+   for _, player in ipairs(Players:GetPlayers()) do
+      table.insert(playerNames, player.Name)
+   end
+
+   if Dropdown and Dropdown.Refresh then
+      Dropdown:Refresh(playerNames, "None")
+   end
+end
+
+refreshPlayerDropdown()
+
+Players.PlayerAdded:Connect(refreshPlayerDropdown)
+Players.PlayerRemoving:Connect(refreshPlayerDropdown)
+
+
+
 
 
 
