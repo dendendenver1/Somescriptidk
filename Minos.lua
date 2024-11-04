@@ -1,11 +1,10 @@
 local Executor = identifyexecutor()
 
 if Executor == "Xeno" then
-    print("Xeno")
+ game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Damn.",["Text"] = "An actual Xeno user? How suprising.",["Duration"] = 20,["Button1"] = "Huh?"})  
 end
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
- game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Success!",["Text"] = "You have Gained access to Surreal's unreleased Gui's..",["Duration"] = 20,["Button1"] = "Fuck off."})  
 
 local Window = Rayfield:CreateWindow({
    Name = "The Strongest Battleground Moveset Hub",
@@ -65,6 +64,8 @@ local Button = Tab:CreateButton({
    Callback = function()
 setclipboard("fqaB7Z524s")   end,
 })
+ game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Success!",["Text"] = "You have Gained access to Surreal's unreleased Gui's..",["Duration"] = 20,["Button1"] = "Fuck off."})  
+
 local Tab = Window:CreateTab("Garou", 15124465439) -- Title, Image
 local Section = Tab:CreateSection("Garou Movesets")
 local Button = Tab:CreateButton({
