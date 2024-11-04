@@ -191,83 +191,10 @@ local Button = Tab:CreateButton({
 loadstring(game:HttpGet"https://raw.githubusercontent.com/tamarixr/tamhub/main/bettertamhub.lua")()
 end,
 })
-local Players = game:GetService("Players")
-local playerNames = {"None"} 
-local selectedPlayer = nil
-local teleporting = false
-local teleportConnection = nil
-local Dropdown = Tab:CreateDropdown({
-   Name = "Teleport To Players",
-   Options = playerNames,
-   CurrentOption = "Select Plr",
-   MultipleOptions = false,
-   Flag = "dropdownarea",
-   Callback = function(Option)
-      if Option == "None" then
-         teleporting = false
-         selectedPlayer = nil
-         if teleportConnection then
-            teleportConnection:Disconnect()
-            teleportConnection = nil
-         end
-      else
-         -- Start teleporting to selected player
-         selectedPlayer = Players:FindFirstChild(Option)
-         if selectedPlayer then
-            teleporting = true
-
-            if teleportConnection then
-               teleportConnection:Disconnect()
-            end
-
-            teleportConnection = game:GetService("RunService").RenderStepped:Connect(function()
-               if teleporting and selectedPlayer and selectedPlayer.Character and selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                  local targetPosition = selectedPlayer.Character.HumanoidRootPart.Position
-                  local localPlayer = Players.LocalPlayer
-                  if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                     -- Set local player's position to target's position
-                     localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
-                  else
-                     print("Local player's HumanoidRootPart not found")
-                  end
-               else
-                  print("Target player's HumanoidRootPart not found or teleporting disabled")
-               end
-            end)
-         else
-            print("Selected player not found")
-         end
-      end
-   end,
+local Button = Tab:CreateButton({
+   Name = "Kade Hub",
+   Callback = function()
+getgenv().DisableWarning = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
+end,
 })
-
-local function refreshPlayerDropdown()
-   playerNames = {"None"} 
-
-   -- Collect current player names
-   for _, player in ipairs(Players:GetPlayers()) do
-      table.insert(playerNames, player.Name)
-   end
-
-   if Dropdown and Dropdown.Refresh then
-      Dropdown:Refresh(playerNames, "None")
-   end
-end
-
-refreshPlayerDropdown()
-
-Players.PlayerAdded:Connect(refreshPlayerDropdown)
-Players.PlayerRemoving:Connect(refreshPlayerDropdown)
-
-
-
-
-
-
-
-
-
-
-
-
-
