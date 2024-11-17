@@ -64,6 +64,27 @@ local Button = Tab:CreateButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/3Cz8kF8M",true))()
     	end
 })
+local Button = Tab:CreateButton({
+	Name = "Garou to Cyber Psycho",
+	Description = 'Inspired by CyberPunk Edgerunners', -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/7V1mUBtQ"))()
+    	end
+})
+local Button = Tab:CreateButton({
+	Name = "Garou to Suiryu",
+	Description = 'Inspired by CyberPunk Edgerunners', -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+   loadstring(game:HttpGet"https://gist.githubusercontent.com/kjremaker/b092496fc11a57e2c50477154176fa3e/raw/2148f00a036a1799118541765675f3f6a0f8adae/GAROU%20TO%20SURIYU%20BETTER%20THAN%20THE%20OTHERS%20FR")()
+    end
+})
+local Button = Tab:CreateButton({
+	Name = "Garou to Goku",
+	Description = 'Inspired by CyberPunk Edgerunners', -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+   loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-Hero-hunter-moveset-into-OP-goku-moveset-17468"))()
+    end
+})
 local Tab = Window:CreateTab({
 	Name = "Saitama Movesets",
 	Icon = "15114667107",
@@ -87,6 +108,19 @@ loadstring(game:HttpGet('https://pastebin.com/raw/1yaXL0rA'))()
     	end
 })
 local Button = Tab:CreateButton({
+	Name = "Saitama to Other Gojo?",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/3Cz8kF8M",true))()
+	    	end
+})
+local Button = Tab:CreateButton({
+	Name = "Saitama To JJS Gojo",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+loadstring(game:HttpGet("https://gist.githubusercontent.com/JcBoomin/a63e9ac3e90cef03ecf37e997fd21632/raw/98b567b81f61bb30042e0078b78f3fb24685fb8d/Gojo",true))()    	end
+})
+local Button = Tab:CreateButton({
 	Name = "Saitama To Gojo",
 	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
     	Callback = function()
@@ -107,8 +141,15 @@ local Tab = Window:CreateTab({
 	ImageSource = "Custom",
 	ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
+local Button = Tab:CreateButton({
+	Name = "Genos Master",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Qaiddanial2904/Sea-blue-and-ai/refs/heads/main/Genos%20v3"))() 
+    end
+})
 local Label = Tab:CreateLabel({
-	Text = "Nothing yet",
+	Text = "Nothing new",
 	Style = 2 -- Luna Labels Have 3 Styles : A Basic Label, A Green Information Label and A Red Warning Label. Look At The Following Image For More Details
 })
 local Tab = Window:CreateTab({
@@ -145,8 +186,22 @@ local Tab = Window:CreateTab({
 	ImageSource = "Custom",
 	ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
+local Button = Tab:CreateButton({
+	Name = "Samurai to Sukuna",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/gUrBYsGK"))()
+    end
+})
+local Button = Tab:CreateButton({
+	Name = "Samurai to Toji",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+loadstring(game:HttpGet("https://paste.ee/r/0uIxM"))()
+    	end
+})
 local Label = Tab:CreateLabel({
-	Text = "Nothing yet",
+	Text = "Nothing new",
 	Style = 2 -- Luna Labels Have 3 Styles : A Basic Label, A Green Information Label and A Red Warning Label. Look At The Following Image For More Details
 })
 
@@ -155,6 +210,13 @@ local Tab = Window:CreateTab({
 	Icon = "code",
 	ImageSource = "Lucide",
 	ShowTitle = true -- This will determine whether the big header text in the tab will show
+})
+local Button = Tab:CreateButton({
+	Name = "Kade Hub",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+getgenv().DisableWarning = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()    	end
 })
 local Button = Tab:CreateButton({
     Name = "HWID",
