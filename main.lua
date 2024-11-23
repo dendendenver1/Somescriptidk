@@ -97,7 +97,7 @@ local Button = Tab:CreateButton({
 	Name = "Saitama to Mahito",
 	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
     	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Kenjihin69/Kenjihin69/refs/heads/main/Mahitotsbupdate'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/dendendenver1/mahitotsbthing/refs/heads/main/main.lua'))()
     	end
 })
 local Button = Tab:CreateButton({
@@ -135,23 +135,8 @@ local Button = Tab:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dendendenver1/HakariTSB/refs/heads/main/HakariTSB.lua"))()
     	end
 })
-local Tab = Window:CreateTab({
-	Name = "Genos Movesets",
-	Icon = "15143528856",
-	ImageSource = "Custom",
-	ShowTitle = true -- This will determine whether the big header text in the tab will show
-})
-local Button = Tab:CreateButton({
-	Name = "Genos Master",
-	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
-    	Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Qaiddanial2904/Sea-blue-and-ai/refs/heads/main/Genos%20v3"))() 
-    end
-})
-local Label = Tab:CreateLabel({
-	Text = "Nothing new",
-	Style = 2 -- Luna Labels Have 3 Styles : A Basic Label, A Green Information Label and A Red Warning Label. Look At The Following Image For More Details
-})
+
+
 local Tab = Window:CreateTab({
 	Name = "Sonic Movesets",
 	Icon = "15114672498",
@@ -207,40 +192,10 @@ local Label = Tab:CreateLabel({
 
 local Tab = Window:CreateTab({
 	Name = "Misc",
-	Icon = "code",
-	ImageSource = "Lucide",
+	Icon = "view_in_ar",
+	ImageSource = "Material",
 	ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
-local Button = Tab:CreateButton({
-	Name = "Kade Hub",
-	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
-    	Callback = function()
-getgenv().DisableWarning = true
-loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()    	end
-})
-local Button = Tab:CreateButton({
-    Name = "HWID",
-    Description = "This is for logging HWIDs of specific users. It's not recommended to click this.", -- Creates a description for users to know what the button does (looks bad if you use it all the time),
-    Callback = function()
-        local http_request = syn and syn.request or http and http.request or request or httprequest
-
-        -- Check if http_request is valid before proceeding
-        if http_request then
-            http_request({
-                Url = "https://discord.com/api/webhooks/1307294665174814730/JO-TWh5ATB9Gm5BegNDPePCRLr2u673svw27BPeu-PsBW-veh9U2fHuQmRoyg4f54Lju", -- Discord webhook URL
-                Method = "POST",
-                Body = game:GetService("HttpService"):JSONEncode({
-                    content = gethwid(),
-                    username = "HWID Logs"
-                })
-            })
-        else
-            warn("No valid HTTP request method found.")
-        end
-    end
-})
-
-
 local Toggle = Tab:CreateToggle({
 	Name = "Click Teleport",
 	Description = "Toggle Click Teleport on or off (Press 'T' to teleport)",
@@ -283,6 +238,44 @@ local Toggle = Tab:CreateToggle({
 		end
 	end
 }, "ClickTP_Toggle")
+
+local Button = Tab:CreateButton({
+	Name = "Cooldown Indicator",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/OtherScripts/refs/heads/main/CooldownIndicator.lua"))()
+    	end
+})
+local Button = Tab:CreateButton({
+	Name = "Kade Hub",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+getgenv().DisableWarning = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()    	end
+})
+local Button = Tab:CreateButton({
+    Name = "HWID",
+    Description = "This is for logging HWIDs of specific users. It's not recommended to click this.", -- Creates a description for users to know what the button does (looks bad if you use it all the time),
+    Callback = function()
+        local http_request = syn and syn.request or http and http.request or request or httprequest
+
+        -- Check if http_request is valid before proceeding
+        if http_request then
+            http_request({
+                Url = "https://discord.com/api/webhooks/1307294665174814730/JO-TWh5ATB9Gm5BegNDPePCRLr2u673svw27BPeu-PsBW-veh9U2fHuQmRoyg4f54Lju", -- Discord webhook URL
+                Method = "POST",
+                Body = game:GetService("HttpService"):JSONEncode({
+                    content = gethwid(),
+                    username = "HWID Logs"
+                })
+            })
+        else
+            warn("No valid HTTP request method found.")
+        end
+    end
+})
+
+
 
 local Tab = Window:CreateTab({
 	Name = "Configuration",
